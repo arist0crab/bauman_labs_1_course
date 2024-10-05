@@ -1,3 +1,8 @@
+"""
+Бондарева Варвара ИУ7-14Б
+Лабораторная работа №5
+Работа с графиками
+"""
 # Подключение необходимых библиотек
 from math import isclose, inf
 
@@ -28,15 +33,16 @@ while not (4 <= serifs <= 8):
 
 # Составление таблицы
 print('-' * 64)
-print('|{:^30}|{:^30}|'.format('t', 'W'))
+print(f'|{'t':^30}|{'W':^30}|')
 print('-' * 64)
 iterations_col = int((final_t - start_t) // step_t) + 1
 iterations_col += isclose(start_t + iterations_col * step_t, final_t)
 t = start_t
 for i in range(iterations_col):
     W = 2048 * t ** 12 - 6144 * t ** 10 - 3584 * t ** 6 + 840 * t ** 4 - 72 * t ** 2 + 1
-    print('|{:^30}|{:^30.7g}|'.format(t, W))
-    t = float('{:.7g}'.format(t + step_t))
+    print('|{:^30}|{:^30.7g}|'.format('{:.7g}'.format(t), W))
+    print(f'|{'{:.7g}'.format(t):^30}|{W:^30.7g}|')
+    t = start_t + (i + 1) * step_t
     if max_y < W:
         max_y = W
     if min_y > W:
@@ -45,6 +51,10 @@ else:
     print('-' * 64)
 
 # Составление и отрисовка графика
+print()
+print(f'{'График типа':^90}')
+print()
+
 # Отрисовка оси y
 y_value_step = (max_y - min_y) / (serifs - 1)  # y2 - y1 (засечки: y1 y2 y3 y4)
 y_diff_btw_spaces = (max_y - min_y) / 80  # Численная разница между двумя соседними пробелами (из 80)
@@ -78,4 +88,4 @@ for i in range(iterations_col):
         else:  # Если * накладывается на |
             x_axis += ' ' * x_stick_num + '*'
     print(x_axis)
-    t = float('{:.7g}'.format(t + step_t))
+    t = start_t + (i + 1) * step_t
