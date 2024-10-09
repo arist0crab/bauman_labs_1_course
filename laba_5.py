@@ -12,6 +12,8 @@ start_t = float(input('Введите начальное значение арг
 final_t = float(input('Введите конечное значение аргумента: '))
 step_t = float(input('Введите шаг разбиения отрезка: '))
 serifs = int(input('Введите количество засечек (от 4 до 8): '))
+W_min = inf
+t_min = 0
 # Инициализация *типа* минимума и максимума функции
 min_y = inf
 max_y = -inf
@@ -40,7 +42,6 @@ iterations_col += isclose(start_t + iterations_col * step_t, final_t)
 t = start_t
 for i in range(iterations_col):
     W = 2048 * t ** 12 - 6144 * t ** 10 - 3584 * t ** 6 + 840 * t ** 4 - 72 * t ** 2 + 1
-    print('|{:^30}|{:^30.7g}|'.format('{:.7g}'.format(t), W))
     print(f'|{'{:.7g}'.format(t):^30}|{W:^30.7g}|')
     t = start_t + (i + 1) * step_t
     if max_y < W:
@@ -73,6 +74,9 @@ print(y_axis)
 t = start_t
 for i in range(iterations_col):
     W = 2048 * t ** 12 - 6144 * t ** 10 - 3584 * t ** 6 + 840 * t ** 4 - 72 * t ** 2 + 1
+    if W_min > W:
+        W_min = W
+        t_min = t
     star_num_spaces = int((W - min_y) / y_diff_btw_spaces) - 1  # Количество пробелов перед звездочкой
     x_stick_num = int(0 - min_y / y_diff_btw_spaces) - 1  # В теории количество пробелов перед палочкой
     x_axis = f'{t:^9.4g}|'
@@ -89,3 +93,5 @@ for i in range(iterations_col):
             x_axis += ' ' * x_stick_num + '*'
     print(x_axis)
     t = start_t + (i + 1) * step_t
+
+print(f'\nWmin = {W_min}\ntmin = {t_min}')
