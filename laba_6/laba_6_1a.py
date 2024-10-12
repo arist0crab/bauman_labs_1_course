@@ -33,4 +33,4 @@ while not ei_right_1 or not ei_right_2:
 
 # Вывод полученного списка
 arr.insert(elem_index, elem)
-print(arr)
+print(f'Полученный список: {arr}')
