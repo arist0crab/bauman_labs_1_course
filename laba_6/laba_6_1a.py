@@ -25,7 +25,6 @@ while not ei_right_1 or not ei_right_2:
         ei_right_1 = (elem_index.isdigit()
                     or elem_index[0] == '-' and elem_index[1:].isdigit())
     elem_index = int(elem_index)
-
     # Защита от хомяков 2, смотрим, не выходит ли индекс за пределы данного списка
     ei_right_2 = ((0 <= elem_index <= len(arr)) or
                 (elem_index < 0 and -1 <= elem_index <= -len(arr) - 1))
@@ -35,4 +34,7 @@ while not ei_right_1 or not ei_right_2:
     else:
         ei_right_2 = ((0 <= elem_index <= len(arr)) or
                     (elem_index < 0 and -1 <= elem_index <= -len(arr) - 1))
-print('Вы справились с невозможным: правильно ввели индекс элемента')
+else:
+    print('Поздравляю!! Вы смогли осилить ввод индекса!!!! ❤ ❤ ❤')
+arr.insert(elem_index, elem)
+print(arr)
