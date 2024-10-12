@@ -19,7 +19,7 @@ while not num_of_items.isdigit():
                          'быть целым положительным числом, попробуйте еще раз: ')
 num_of_items = int(num_of_items)
 # Защита от хомяков 2 - проверка номера экстремума
-while not k.isdigit():
+while not k.isdigit() or k == '0':
     k = input('k должно быть целым положительным '
               'числом, попробуйте еще раз: ')
 k = int(k)
