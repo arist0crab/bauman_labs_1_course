@@ -14,7 +14,7 @@ result = 0
 arr_is_correct = False
 
 # Защита от хомяков 1 - проверка количества элементов списка
-while not num_of_items.isdigit():
+while not num_of_items.isdigit() or num_of_items == '0':
     num_of_items = input('Количество элементов списка должно '
                          'быть целым положительным числом, попробуйте еще раз: ')
 num_of_items = int(num_of_items)

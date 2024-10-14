@@ -15,7 +15,7 @@ ei_right_1, ei_right_2 = False, False
 
 # Глобальная защита от хомяков
 # Защита от хомяков - проверка количества элементов списка
-while not num_of_items.isdigit():
+while not num_of_items.isdigit() or num_of_items == '0':
     num_of_items = input('Количество элементов списка должно '
                          'быть целым положительным числом, попробуйте еще раз: ')
 num_of_items = int(num_of_items)
