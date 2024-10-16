@@ -55,5 +55,4 @@ arr[elem_index] = elem
 
 # Вывод полученного списка
 print(f'Полученный список: {arr}')
-new_arr.insert(elem_index, 'HERE')
 print('Результат работы insert в аналогичных условиях: ', arr)

@@ -47,7 +47,7 @@ new_arr = arr.copy()
 elem_index = len(arr) - abs(elem_index) if elem_index < 0 else elem_index
 for i in range(elem_index + 1, len(arr)):
     arr[i - 1] = arr[i]
-arr.pop(-1)
+arr.pop()
 
 # Вывод полученного списка
 print(f'Полученный список: {arr}')
