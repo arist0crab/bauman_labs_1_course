@@ -26,7 +26,7 @@ for i in range(num_of_items):
     flag = False
     for char in range(len(arr[i]) - 1):
         if arr[i][char].isdigit() and arr[i][char + 1].isdigit():
-            new += f'{(int(arr[i][char]) + int(arr[i][char + 1])) % 10}'
+            new += f'{(int(arr[i][char]) + int(arr[i][char + 1]))}'[-1]
             flag = True
         else:
             if not flag:
