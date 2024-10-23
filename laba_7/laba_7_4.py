@@ -23,12 +23,17 @@ arr = [input('>> ') for i in range(num_of_items)]
 # Основной цикл
 for i in range(num_of_items):
     new = ''
+    flag = False
     for char in range(len(arr[i]) - 1):
         if arr[i][char].isdigit() and arr[i][char + 1].isdigit():
             new += f'{(int(arr[i][char]) + int(arr[i][char + 1])) % 10}'
+            flag = True
         else:
-            new += arr[i][char]
-    print(new)
+            if not flag:
+                new += arr[i][char]
+            else:
+                flag = False
+    arr[i] = new
 
 
 # Вывод полученного списка
